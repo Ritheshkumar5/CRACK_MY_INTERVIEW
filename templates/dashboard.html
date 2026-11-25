@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Crack My Interview{% endblock %}
+{% block page_name %}dashboard{% endblock %}
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="card mb-3" style="background: linear-gradient(135deg, #0a1f44, #13306b); color:#fff;">
+      <div class="flex-between flex-wrap">
+        <div>
+          <h2 style="color:#fff; margin-bottom:6px;">Welcome back, <span id="welcomeName">User</span> 👋</h2>
+          <p style="color:#dbe7ff; margin:0;">Choose a module to practice, evaluate, and track your interview preparation progress.</p>
+        </div>
+        <a href="/mock-interview" class="btn btn-primary btn-lg">Start Mock Interview</a>
+      </div>
+    </div>
+
+    <div class="grid grid-4 mb-3">
+      <div class="card stat-card"><div class="stat-icon"><i class="fa-solid fa-list-check"></i></div><div class="stat-value" id="statTotalInterviews">0</div><div class="stat-label">Total Interviews</div></div>
+      <div class="card stat-card"><div class="stat-icon"><i class="fa-solid fa-percent"></i></div><div class="stat-value" id="statAverageScore">0%</div><div class="stat-label">Average Score</div></div>
+      <div class="card stat-card"><div class="stat-icon"><i class="fa-solid fa-trophy"></i></div><div class="stat-value" id="statHighestScore">0%</div><div class="stat-label">Highest Score</div></div>
+      <div class="card stat-card"><div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-value" id="statImprovement">Baseline</div><div class="stat-label">Improvement</div></div>
+    </div>
+
+    <div class="grid grid-3 mb-3">
+      <div class="card hover-lift"><h3>Question Bank</h3><p>Browse and filter questions by category and difficulty.</p><a href="/question-bank" class="btn btn-outline mt-1">Open Question Bank</a></div>
+      <div class="card hover-lift"><h3>Mock Interview</h3><p>Take timed mock interviews with random questions.</p><a href="/mock-interview" class="btn btn-outline mt-1">Start Interview</a></div>
+      <div class="card hover-lift"><h3>Performance Report</h3><p>View history, charts, strengths, and weaknesses.</p><a href="/report" class="btn btn-outline mt-1">View Reports</a></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="flex-between mb-1"><h3>Recent Interviews</h3><a href="/report">View all</a></div>
+        <div class="table-wrap">
+          <table class="table table-sm">
+            <thead><tr><th>Date</th><th>Category</th><th>Difficulty</th><th>Score</th><th>Action</th></tr></thead>
+            <tbody id="recentInterviewsBody"></tbody>
+          </table>
+        </div>
+        <div id="recentInterviewsEmpty" class="empty-state hidden">
+          <i class="fa-regular fa-clipboard"></i>
+          <p>No interviews yet. Take your first mock interview to see results here.</p>
+          <a href="/mock-interview" class="btn btn-primary mt-1">Start Mock Interview</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Preparation Tip</h3>
+        <p id="dashboardTip" class="mb-1">Start your first mock interview to receive personalized feedback and performance insights.</p>
+        <div class="alert alert-info mb-1"><strong>Tip:</strong> Review explanations for incorrect answers in the result page to improve faster.</div>
+        <a href="/profile" class="btn btn-secondary">Manage Profile</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

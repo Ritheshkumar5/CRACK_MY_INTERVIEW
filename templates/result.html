@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Result | Crack My Interview{% endblock %}
+{% block page_name %}result{% endblock %}
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block content %}
+<section class="page-section">
+  <div class="container" id="resultRoot">
+    <div class="page-header flex-between flex-wrap">
+      <div>
+        <h2>Evaluation Result</h2>
+        <p>Review your score, correct answers, explanations, strengths, weaknesses, and suggestions.</p>
+      </div>
+      <div class="flex gap-1 no-print flex-wrap">
+        <a href="/mock-interview" class="btn btn-outline">Retake Interview</a>
+        <a href="/report" class="btn btn-secondary">View Reports</a>
+      </div>
+    </div>
+
+    <div class="grid grid-2 mb-3">
+      <div class="card text-center">
+        <div class="score-ring" id="scoreRing"><span id="scoreRingText">0%</span></div>
+        <h3 id="resultScoreLine">You scored 0 marks (0%)</h3>
+        <div class="flex gap-1" style="justify-content:center; flex-wrap:wrap; margin: 8px 0;">
+          <span class="badge badge-status" id="resultCategory">Category</span>
+          <span class="badge badge-status" id="resultDifficulty">Difficulty</span>
+        </div>
+        <p class="muted" id="resultMeta">Date: - | Duration: -</p>
+      </div>
+      <div class="card chart-card">
+        <h3>Answer Breakdown</h3>
+        <canvas id="resultChart" aria-label="Result chart"></canvas>
+        <div class="kpi-list mt-2">
+          <div class="card" style="padding:12px;"><div class="stat-label">Correct</div><div class="stat-value" id="resCorrectCount" style="color:var(--success);">0</div></div>
+          <div class="card" style="padding:12px;"><div class="stat-label">Incorrect</div><div class="stat-value" id="resIncorrectCount" style="color:var(--danger);">0</div></div>
+          <div class="card" style="padding:12px;"><div class="stat-label">Unanswered</div><div class="stat-value" id="resUnansweredCount" style="color:var(--warning);">0</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3 mb-3">
+      <div class="card" style="border-left:4px solid var(--success);"><h3>Strengths</h3><p id="feedbackStrengths">-</p></div>
+      <div class="card" style="border-left:4px solid var(--danger);"><h3>Weaknesses</h3><p id="feedbackWeaknesses">-</p></div>
+      <div class="card" style="border-left:4px solid var(--orange-500);"><h3>Suggestions</h3><p id="feedbackSuggestions">-</p></div>
+    </div>
+
+    <div class="card">
+      <div class="flex-between flex-wrap mb-2">
+        <h3>Answer Review</h3>
+        <button class="btn btn-primary no-print" onclick="window.print()">Download / Print Result</button>
+      </div>
+      <div id="answerReviewList"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

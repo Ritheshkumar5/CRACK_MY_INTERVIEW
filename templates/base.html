@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Crack My Interview{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head_extra %}{% endblock %}
+</head>
+<body data-page="{% block page_name %}{% endblock %}">
+  {% include '_navbar.html' %}
+
+  <main class="page-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include '_footer.html' %}
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <div id="global-loader" class="global-loader hidden" aria-hidden="true">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block scripts_extra %}{% endblock %}
+</body>
+</html>

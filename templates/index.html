@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Home | Crack My Interview{% endblock %}
+{% block page_name %}home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Crack Your Next Interview with Confidence</h1>
+      <p class="lead">Practice Smart. Perform Better. Get Hired. Prepare for HR, Technical, Aptitude, and Coding rounds with timed mock interviews, automatic evaluation, and performance tracking.</p>
+      <div class="hero-actions">
+        <a id="heroPrimaryCta" href="/register" class="btn btn-primary btn-lg">Get Started</a>
+        <a id="heroSecondaryCta" href="/login" class="btn btn-outline btn-lg">Login</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <h3>Why Crack My Interview?</h3>
+      <ul>
+        <li>Category-wise question bank (HR, Technical, Aptitude, Coding)</li>
+        <li>Timed mock interviews with 60 seconds per question</li>
+        <li>Instant evaluation with correct answers and explanations</li>
+        <li>Performance reports with score trends and improvement insights</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="page-header text-center">
+      <h2>Everything You Need to Prepare</h2>
+      <p>All five modules are designed to help you practice, evaluate, and improve in one place.</p>
+    </div>
+    <div class="grid auto-grid">
+      <div class="card hover-lift">
+        <div class="stat-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <h3>User Authentication</h3>
+        <p>Secure registration, login, profile management, and session-based access to your data.</p>
+      </div>
+      <div class="card hover-lift">
+        <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+        <h3>Question Bank</h3>
+        <p>Browse and filter HR, Technical, Aptitude, and Coding questions by difficulty.</p>
+      </div>
+      <div class="card hover-lift">
+        <div class="stat-icon"><i class="fa-solid fa-stopwatch"></i></div>
+        <h3>Mock Interview</h3>
+        <p>Take timed interviews with random questions, one question at a time, and progress tracking.</p>
+      </div>
+      <div class="card hover-lift">
+        <div class="stat-icon"><i class="fa-solid fa-square-check"></i></div>
+        <h3>Evaluation & Feedback</h3>
+        <p>Get automatic scoring, correct answers, explanations, strengths, weaknesses, and suggestions.</p>
+      </div>
+      <div class="card hover-lift">
+        <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Performance Report</h3>
+        <p>Track interview history, score trends, improvement, and strongest/weakest categories.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section" style="background: var(--gray-50);">
+  <div class="container">
+    <div class="page-header text-center">
+      <h2>Practice by Category</h2>
+      <p>Choose the area you want to improve and start practicing with the right difficulty level.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card"><span class="badge badge-hr">HR</span><h3 class="mt-1">HR Questions</h3><p>Behavioral and communication-focused interview questions.</p></div>
+      <div class="card"><span class="badge badge-technical">Technical</span><h3 class="mt-1">Technical Questions</h3><p>Core CS and technology concepts for technical rounds.</p></div>
+      <div class="card"><span class="badge badge-aptitude">Aptitude</span><h3 class="mt-1">Aptitude Questions</h3><p>Numerical, logical, and analytical problem solving.</p></div>
+      <div class="card"><span class="badge badge-coding">Coding</span><h3 class="mt-1">Coding Questions</h3><p>Programming and logic questions for coding preparation.</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

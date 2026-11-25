@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Performance Report | Crack My Interview{% endblock %}
+{% block page_name %}report{% endblock %}
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="page-header flex-between flex-wrap no-print">
+      <div>
+        <h2>Performance Report</h2>
+        <p>Track your interview history, score trends, improvement, and strongest/weakest categories.</p>
+      </div>
+      <button id="downloadReportBtn" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Report</button>
+    </div>
+
+    <div class="grid grid-4 mb-3">
+      <div class="card stat-card"><div class="stat-label">Total Interviews</div><div class="stat-value" id="repTotalInterviews">0</div></div>
+      <div class="card stat-card"><div class="stat-label">Average Score</div><div class="stat-value" id="repAverageScore">0%</div></div>
+      <div class="card stat-card"><div class="stat-label">Highest Score</div><div class="stat-value" id="repHighestScore">0%</div></div>
+      <div class="card stat-card"><div class="stat-label">Improvement</div><div class="stat-value" id="repImprovement">Baseline</div><div class="form-hint">Compared to previous interview</div></div>
+    </div>
+
+    <div class="grid grid-2 mb-3">
+      <div class="card chart-card">
+        <h3>Score Trend</h3>
+        <canvas id="trendChart" aria-label="Score trend chart"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Category-wise Average</h3>
+        <canvas id="categoryChart" aria-label="Category average chart"></canvas>
+      </div>
+    </div>
+
+    <div class="grid grid-2 mb-3">
+      <div class="card"><h3>Strongest Category</h3><p id="repStrongest" class="stat-value" style="font-size:1.4rem;">N/A</p></div>
+      <div class="card"><h3>Weakest Category</h3><p id="repWeakest" class="stat-value" style="font-size:1.4rem;">N/A</p></div>
+    </div>
+
+    <div class="card">
+      <div class="flex-between flex-wrap mb-2">
+        <h3>Interview History</h3>
+        <span class="muted">Includes date, category, difficulty, count, score, and duration.</span>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Difficulty</th>
+              <th>Questions</th>
+              <th>Score</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th class="no-print">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+      <div id="historyEmpty" class="empty-state hidden">
+        <i class="fa-regular fa-chart-bar"></i>
+        <p>No completed interviews yet. Start a mock interview to generate your performance report.</p>
+        <a href="/mock-interview" class="btn btn-primary mt-1">Start Mock Interview</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Mock Interview | Crack My Interview{% endblock %}
+{% block page_name %}mock-interview{% endblock %}
+{% block content %}
+<section class="page-section">
+  <div class="container">
+    <div class="page-header">
+      <h2>Mock Interview</h2>
+      <p>Select a category, difficulty, and number of questions. Each question has a 60-second timer and questions are shown one at a time.</p>
+    </div>
+
+    <!-- Setup View -->
+    <div id="setupView" class="card form-card">
+      <h3>Configure Mock Interview</h3>
+      <p class="muted">Random questions will be selected with no duplicates for this session.</p>
+      <form id="mockSetupForm">
+        <div class="form-group">
+          <label for="miCategory">Category *</label>
+          <select id="miCategory" class="form-control" required></select>
+        </div>
+        <div class="input-row">
+          <div class="form-group">
+            <label for="miDifficulty">Difficulty *</label>
+            <select id="miDifficulty" class="form-control" required>
+              <option value="">Select Difficulty</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="miCount">Number of Questions *</label>
+            <select id="miCount" class="form-control" required>
+              <option value="5">5 Questions</option>
+              <option value="10">10 Questions</option>
+            </select>
+          </div>
+        </div>
+        <div class="alert alert-info">
+          <strong>Instructions:</strong> One question at a time, 60 seconds per question, progress bar shown, unanswered on timeout, and answers saved on submission.
+        </div>
+        <div id="mockSetupMessage" class="form-error"></div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Start Interview</button>
+      </form>
+    </div>
+
+    <!-- Interview View -->
+    <div id="interviewView" class="card hidden">
+      <div class="interview-topbar">
+        <div>
+          <div class="flex gap-1 flex-wrap mb-1">
+            <span class="badge badge-status" id="miCategoryBadge">Category</span>
+            <span class="badge badge-status" id="miDifficultyBadge">Difficulty</span>
+          </div>
+          <div id="miQuestionCounter" style="font-weight:700; color:var(--navy-900);">Question 1 of 5</div>
+        </div>
+        <div class="timer-chip" id="miTimer"><i class="fa-regular fa-clock"></i> <span id="miTimerText">60s</span></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" id="miProgressFill"></div></div>
+      </div>
+      <h3 id="miQuestionText" class="mt-1">Question text</h3>
+      <div id="miOptions" class="option-grid"></div>
+      <div class="flex-between mt-3 flex-wrap">
+        <p class="muted mb-1">Select an option and click Next. If time runs out, the question is marked unanswered and moved automatically.</p>
+        <button id="nextQuestionBtn" class="btn btn-primary">Next Question</button>
+      </div>
+    </div>
+
+    <!-- Complete View -->
+    <div id="completeView" class="card hidden text-center" style="max-width:640px;margin:0 auto;">
+      <h3>Interview Completed 🎉</h3>
+      <p class="muted">Review your attempt summary below and submit for evaluation.</p>
+      <div class="grid grid-2 mt-2 mb-2">
+        <div class="card"><div class="stat-label">Answered</div><div class="stat-value" id="completeAnswered">0 / 0</div></div>
+        <div class="card"><div class="stat-label">Unanswered</div><div class="stat-value" id="completeUnanswered">0</div></div>
+      </div>
+      <button id="submitInterviewBtn" class="btn btn-primary btn-lg">Submit for Evaluation</button>
+      <p class="form-hint mt-1">Your answers, score, feedback, and duration will be saved.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

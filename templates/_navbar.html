@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="/" class="brand" aria-label="Crack My Interview home">
+      <span class="brand-mark"><i class="fa-solid fa-graduation-cap"></i></span>
+      <span class="brand-text">Crack My Interview</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/dashboard" data-nav="dashboard" class="auth-only">Dashboard</a>
+      <a href="/question-bank" data-nav="question-bank" class="auth-only">Question Bank</a>
+      <a href="/mock-interview" data-nav="mock-interview" class="auth-only">Mock Interview</a>
+      <a href="/report" data-nav="report" class="auth-only">Reports</a>
+      <a href="/profile" data-nav="profile" class="auth-only">Profile</a>
+      <a href="/admin" data-nav="admin" class="admin-only">Admin</a>
+    </nav>
+    <div class="nav-actions" id="navActions">
+      <a href="/login" class="btn btn-outline btn-sm guest-only" id="navLoginBtn">Login</a>
+      <a href="/register" class="btn btn-primary btn-sm guest-only" id="navRegisterBtn">Register</a>
+      <div class="user-menu auth-only" id="userMenu">
+        <span class="user-chip" id="navUserName"><i class="fa-solid fa-user"></i> <span>User</span></span>
+        <button class="btn btn-outline btn-sm" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </div>
+</header>
